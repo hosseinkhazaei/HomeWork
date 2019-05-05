@@ -1,5 +1,6 @@
 ﻿using Dal;
 using Entites;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,17 @@ namespace Ui
         {
             var ctx = new MyAppContext();
             //Test01(ctx);
-            Person person = ctx.People.FirstOrDefault();
+           // Person person = ctx.People.FirstOrDefault();
+            //var per = ctx.People.FromSql("select * from People").ToList();
+           // ctx.Database.ExecuteSqlCommand("delete from People");
+            //ctx.People.Load();
             List<string> lists = new List<string>();
             lists.Add("FirstName");
             lists.Add("LastName");
+            ctx.deleteAll();
+            //Test01(ctx);
+            //updateMethod(person, lists);
 
-            updateMethod(person, lists);
-           
         }
         private static void Test01(MyAppContext ctx)
         {
@@ -59,5 +64,6 @@ namespace Ui
 
             Console.ReadLine();
         }
+        
     }
 }

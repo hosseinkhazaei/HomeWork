@@ -3,8 +3,11 @@ using System.Collections.Generic;
 
 namespace Entites
 {
-   
-    public class Person 
+   public class BaseClass
+    {
+
+    }
+    public class Person :BaseClass
     {
         public int PersonId { get; set; }
         public string FirstName { get; set; }
@@ -16,13 +19,13 @@ namespace Entites
         public DateTime InsertDate { get; set; }
         public DateTime UpdateDate { get; set; }
     }
-    public class Contact
+    public class Contact : BaseClass
     {
         public int ContactId { get; set; }
         public int PersonId { get; set; }
         public Person Person { get; set; }
     }
-    public class JobData
+    public class JobData : BaseClass
     {
         public int JobDataId { get; set; }
         public string JobTitle { get; set; }
